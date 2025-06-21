@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kumarasamy K | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: #E9F1FA;
       color: #000000;
     }
@@ -19,9 +19,16 @@
       color: #000000;
       padding: 3rem 1rem;
       text-align: center;
+      animation: fadeInDown 1s ease-in-out;
     }
-    header h1 { margin: 0; font-size: 3rem; }
-    header p { font-size: 1.2rem; margin: 0.5rem 0; }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
     header a {
       background: #00ABE4;
       color: white;
@@ -34,23 +41,10 @@
       transition: all 0.3s ease-in-out;
       border: 2px solid transparent;
     }
-    header p a {
-      background: none;
-      padding: 0;
-      border-radius: 0;
-      font-weight: normal;
-      text-decoration: underline;
-      display: inline;
-    }
     header a:hover {
       background: #E9F1FA;
       color: #00ABE4;
       border: 2px solid #00ABE4;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
     }
     h2 {
       display: inline-block;
@@ -58,8 +52,13 @@
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 30px;
-      margin: 4rem 0 2rem;
+      margin: 3rem 0 2rem;
       font-weight: bold;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
     .section-img {
       width: 100%;
@@ -67,9 +66,10 @@
       object-fit: cover;
       border-radius: 10px;
       margin: 2rem 0 1.5rem;
+      animation: fadeInZoom 1s ease-in-out;
     }
     .card {
-      background: #FFFFFF;
+      background: white;
       padding: 1.5rem;
       margin: 1.5rem 0;
       border-radius: 16px;
@@ -80,51 +80,28 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
     .project-card {
-      background: white;
       border-left: 6px solid #00ABE4;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding-left: 1rem;
+      background-color: #FFFFFF;
+      color: #000000;
+      transition: box-shadow 0.3s ease-in-out;
     }
     .project-card:hover {
       box-shadow: 0 0 12px rgba(0, 171, 228, 0.5);
     }
-    .project-content {
-      padding: 1rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .project-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #00ABE4;
-      margin-bottom: 0.5rem;
-    }
-    .project-desc {
-      font-size: 0.95rem;
-      flex-grow: 1;
-    }
     .project-link {
       display: inline-block;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       color: #00ABE4;
       text-decoration: none;
       font-weight: bold;
     }
     .project-link:hover {
       text-decoration: underline;
+    }
+    ul {
+      padding-left: 1.5rem;
     }
     ul li {
       margin-bottom: 0.5rem;
@@ -135,6 +112,20 @@
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 3rem;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInZoom {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -143,27 +134,69 @@
     <img src="profile.jpg" alt="Kumarasamy K" style="width:120px; height:120px; border-radius: 50%; margin-bottom: 1rem; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
     <h1>Kumarasamy K</h1>
     <p>Senior Android & Python Developer</p>
-    <p style="margin-top: 1rem; font-size: 1rem; color: white;">
-      📞 +91-9940044069 &nbsp;&nbsp;
-      📧 <a href="mailto:kumarsamy19792@gmail.com" style="color: white; text-decoration: underline;">kumarsamy19792@gmail.com</a> &nbsp;&nbsp;
-      📄 <a href="Kumarasamy_Resume.pdf" download style="color: white; text-decoration: underline;">Kumarasamy_Resume.pdf</a>
-    </p>
+    <p>📞 +91-9940044069 &nbsp;&nbsp; 📧 <a href="mailto:kumarsamy19792@gmail.com" style="color: #000000; text-decoration: underline;">kumarsamy19792@gmail.com</a></p>
+    <a href="Kumarasamy_Resume.pdf" target="_blank" download><i class="fas fa-file-download"></i> Download Resume</a>
+    <br>
     <a href="https://www.linkedin.com/in/kumarasamy-k-b913a0135/" target="_blank"><i class="fab fa-linkedin"></i> View LinkedIn Profile</a>
-  </header>
+</header>
 
   <section>
+    <h2>About Me</h2>
+    <div class="card">
+      <p>Versatile Android and Python developer with over 10 years of experience building high-performance mobile and backend systems. Specialized in Kotlin, Java, Python, Flask, and FastAPI, with a strong focus on clean architecture, API integrations, and cross-functional collaboration.</p>
+    </div>
+
+    <h2>Technical Skills</h2>
+    <div class="card">
+      <ul>
+        <li>Languages: Kotlin, Java, Python</li>
+        <li>Frameworks: Android SDK, Flask, FastAPI</li>
+        <li>Architectures: MVVM, MVC, MVP</li>
+        <li>Tools: Android Studio, Docker, Git, Firebase</li>
+        <li>Concepts: REST APIs, Async programming, Clean Architecture</li>
+      </ul>
+    </div>
+
     <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-content">
-          <div>
-            <div class="project-title">Tallite</div>
-            <div class="project-desc">A global recruitment platform connecting employers with jobseekers directly or via referral agents, enabling faster and cost-effective hiring.</div>
-          </div>
-          <a href="http://t.ly/HBG8d" class="project-link" target="_blank">View Project</a>
-        </div>
-      </div>
-      <!-- Repeat similar structure for other projects as needed -->
+
+    <div class="card project-card">
+      <strong>Tallite</strong>: Recruitment platform (Python + Android)<br />
+      <p>A global recruitment platform connecting employers with jobseekers directly or via referral agents, enabling faster and cost-effective hiring. Built with Python (Flask & FastAPI) and RESTful APIs.</p>
+      <a href="http://t.ly/HBG8d" class="project-link" target="_blank">View Project</a>
+    </div>
+
+    <div class="card project-card">
+      <strong>WhatMate</strong>: AI-driven productivity app<br />
+      <p>AI-powered automation platform for enterprise and personal task management via a simple, chatbot-style interface.</p>
+      <a href="http://t.ly/vjKH" class="project-link" target="_blank">View Project</a>
+    </div>
+
+    <div class="card project-card">
+      <strong>CVMine</strong>: Job platform with token rewards<br />
+      <p>Connects jobseekers with employers and rewards users with TAL tokens. Prioritizes secure resume sharing and access to top jobs.</p>
+      <a href="http://t.ly/9Opc9" class="project-link" target="_blank">View Project</a>
+    </div>
+
+    <div class="card project-card">
+      <strong>TalliteSS</strong>: HR Suite for staffing and executive search<br />
+      <p>End-to-end recruitment suite with modules for candidate profiling, job management, and integration with external job boards. Built with Flask and FastAPI.</p>
+      <a href="http://t.ly/dxHZg" class="project-link" target="_blank">View Project</a>
+    </div>
+
+    <div class="card project-card">
+      <strong>EFS FMPro</strong>: Mobile service management app<br />
+      <p>Enables real-time tracking, customer management, and QHSE compliance for field services. Enterprise use only.</p>
+    </div>
+
+    <div class="card project-card">
+      <strong>FileShore</strong>: Tier 1 cloud document platform<br />
+      <ul>
+        <li>Share documents with employees, partners, or the public from one unified platform.</li>
+        <li>Secure sensitive data with PIN and multi-factor authentication.</li>
+        <li>Automate document creation with templates and forms for review, approval, or acceptance.</li>
+        <li>Enable multi-level e-sign workflows for internal and external users.</li>
+      </ul>
+      <a href="http://t.ly/dxHZg" class="project-link" target="_blank">View Project</a>
     </div>
   </section>
 
