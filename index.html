@@ -5,65 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kumarasamy K | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
       color: #333;
     }
     header {
-      background: #34495e;
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
       color: white;
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
     }
     header a {
-      color: #1abc9c;
+      background: #1abc9c;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
       text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
       display: inline-block;
-      margin-top: 0.5rem;
     }
     section {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
     h2 {
       color: #2c3e50;
-      border-bottom: 2px solid #1abc9c;
-      padding-bottom: 0.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
     .card {
       background: white;
       padding: 1.5rem;
-      margin: 1rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      margin: 1.5rem 0;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     }
-    footer {
-      background: #34495e;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+    ul li {
+      margin-bottom: 0.5rem;
     }
-    a.project-link {
+    .project-link {
       display: inline-block;
       margin-top: 0.5rem;
-      color: #3498db;
+      color: #2980b9;
       text-decoration: none;
+      font-weight: bold;
     }
-    a.project-link:hover {
+    .project-link:hover {
       text-decoration: underline;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -71,7 +85,7 @@
   <header>
     <h1>Kumarasamy K</h1>
     <p>Senior Android & Python Developer</p>
-    <a href="https://www.linkedin.com/in/kumarasamy-k-b913a0135/" target="_blank">View LinkedIn Profile</a>
+    <a href="https://www.linkedin.com/in/kumarasamy-k-b913a0135/" target="_blank"><i class="fab fa-linkedin"></i> View LinkedIn Profile</a>
   </header>
 
   <section>
@@ -93,33 +107,27 @@
 
     <h2>Projects</h2>
     <div class="card">
-      <strong>Tallite</strong>: Recruitment platform (Python + Android)
-      <br />
+      <strong>Tallite</strong>: Recruitment platform (Python + Android)<br />
       <a href="http://t.ly/HBG8d" class="project-link" target="_blank">View Project</a>
     </div>
     <div class="card">
-      <strong>WhatMate</strong>: AI-driven productivity app
-      <br />
+      <strong>WhatMate</strong>: AI-driven productivity app<br />
       <a href="http://t.ly/vjKH" class="project-link" target="_blank">View Project</a>
     </div>
     <div class="card">
-      <strong>CVMine</strong>: Job platform with token rewards
-      <br />
+      <strong>CVMine</strong>: Job platform with token rewards<br />
       <a href="http://t.ly/9Opc9" class="project-link" target="_blank">View Project</a>
     </div>
     <div class="card">
-      <strong>TalliteSS</strong>: HR Suite for staffing and executive search
-      <br />
+      <strong>TalliteSS</strong>: HR Suite for staffing and executive search<br />
       <a href="http://t.ly/dxHZg" class="project-link" target="_blank">View Project</a>
     </div>
     <div class="card">
-      <strong>EFS FMPro</strong>: Mobile service management app
-      <br />
+      <strong>EFS FMPro</strong>: Mobile service management app<br />
       <em>Private Enterprise App (not publicly listed)</em>
     </div>
     <div class="card">
-      <strong>FileShore</strong>: Tier 1 cloud document platform
-      <br />
+      <strong>FileShore</strong>: Tier 1 cloud document platform<br />
       <a href="http://t.ly/dxHZg" class="project-link" target="_blank">View Project</a>
     </div>
   </section>
