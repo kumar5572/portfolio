@@ -24,14 +24,23 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-   h2 {
-  background: #00ABE4;
-  color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
+  h2 {
+  position: relative;
   margin: 4rem 0 2rem;
+  padding-left: 1.5rem;
+  font-weight: bold;
 }
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background-color: #00ABE4;
+  border-radius: 50%;
+}
+
 
     @keyframes slideInLeft {
       from { opacity: 0; transform: translateX(-50px); }
