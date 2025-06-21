@@ -23,17 +23,26 @@
     header h1 { margin: 0; font-size: 3rem; }
     header p { font-size: 1.2rem; margin: 0.5rem 0; }
     header a {
-      background: #00ABE4;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 1rem;
-      display: inline-block;
-      transition: all 0.3s ease-in-out;
-      border: 2px solid transparent;
-    }
+  background: #00ABE4;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+
+header p a {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-weight: normal;
+  text-decoration: underline;
+  display: inline;
+}
     header a:hover {
       background: #E9F1FA;
       color: #00ABE4;
