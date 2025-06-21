@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kumarasamy K | Portfolio</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
@@ -15,48 +14,30 @@
       color: #333;
     }
     header {
-      background: linear-gradient(to right, #B4121B, #4ca1af);
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
-      animation: fadeInDown 1s ease-in-out;
-    }
+  background: linear-gradient(to right, #B4121B, #000000);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  animation: fadeInDown 1s ease-in-out;
+}
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     h2 {
       position: relative;
       animation: slideInLeft 0.7s ease-in-out;
     }
     @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
     }
     .card {
       animation: fadeInUp 0.7s ease-in-out;
     }
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     header h1 {
       margin: 0;
@@ -90,14 +71,8 @@
       animation: fadeInZoom 1s ease-in-out;
     }
     @keyframes fadeInZoom {
-      0% {
-        transform: scale(0.95);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
     .card {
       background: white;
@@ -112,19 +87,21 @@
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     }
     .project-card {
-      border-left: 6px solid #B4121B;
-      padding-left: 1rem;
-    }
+  border-left: 6px solid #B4121B;
+  padding-left: 1rem;
+  background-color: #000000;
+  color: white;
+}
     ul li {
       margin-bottom: 0.5rem;
     }
     .project-link {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #2980b9;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ff5e5e;
+  text-decoration: none;
+  font-weight: bold;
+}
     .project-link:hover {
       text-decoration: underline;
     }
@@ -137,18 +114,14 @@
       animation: fadeIn 1.2s ease-in-out;
     }
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="profile.jpg" alt="Kumarasamy K" style="width:120px; height:120px; border-radius: 50%; margin-bottom: 1rem; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.2);" />
+    <img src="profile.jpg" alt="Kumarasamy K" style="width:120px; height:120px; border-radius: 50%; margin-bottom: 1rem; border: 3px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
     <h1>Kumarasamy K</h1>
     <p>Senior Android & Python Developer</p>
     <a href="https://www.linkedin.com/in/kumarasamy-k-b913a0135/" target="_blank"><i class="fab fa-linkedin"></i> View LinkedIn Profile</a>
@@ -156,14 +129,14 @@
 
   <section>
     <h2>About Me</h2>
-    <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1522075469751-3a6694fb2f61" alt="About Me" class="section-img">
-    <div class="card project-card">
+    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1050&q=80" alt="About Me" class="section-img">
+    <div class="card">
       <p>Versatile Android and Python developer with over 10 years of experience building high-performance mobile and backend systems. Specialized in Kotlin, Java, Python, Flask, and FastAPI, with a strong focus on clean architecture, API integrations, and cross-functional collaboration.</p>
     </div>
 
     <h2>Technical Skills</h2>
-    <img src="https://images.weserv.nl/?url=images.unsplash.com/photo-1518770660439-4636190af475" alt="Technical Skills" class="section-img">
-    <div class="card project-card">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1050&q=80" alt="Technical Skills" class="section-img">
+    <div class="card">
       <ul>
         <li>Languages: Kotlin, Java, Python</li>
         <li>Frameworks: Android SDK, Flask, FastAPI</li>
@@ -174,7 +147,7 @@
     </div>
 
     <h2>Projects</h2>
-    <img src="https://images.weserv.nl/?url=https://images.unsplash.com/photo-1587620962725-abab7fe55159" alt="Projects" class="section-img">
+    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1050&q=80" alt="Projects" class="section-img">
     <div class="card project-card">
       <strong>Tallite</strong>: Recruitment platform (Python + Android)<br />
       <a href="http://t.ly/HBG8d" class="project-link" target="_blank">View Project</a>
