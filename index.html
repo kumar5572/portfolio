@@ -16,10 +16,17 @@
     }
     header {
       background: linear-gradient(to right, #00ABE4, #E9F1FA, #00ABE4);
-      color: #000000;
-      padding: 3rem 1rem;
-      text-align: center;
+  background-size: 300% 100%; /* bigger than container for smooth movement */
+  animation: ripple 10s ease infinite; /* adjust duration as needed */
+  color: #000000;
+  padding: 3rem 1rem;
+  text-align: center;
     }
+    @keyframes ripple {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
     header h1 { margin: 0; font-size: 3rem; }
     header p { font-size: 1.2rem; margin: 0.5rem 0; }
     header a {
