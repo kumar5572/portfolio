@@ -576,6 +576,874 @@ html[data-theme="dark"] #themeToggle .sun-icon { display: inline-block !importan
   }
 }
 
+
+/* Reliable floating theme button */
+#themeToggle{
+  position:fixed !important;
+  right:24px !important;
+  bottom:24px !important;
+  z-index:999999 !important;
+  width:48px !important;
+  height:48px !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border:1px solid #b9c9da !important;
+  border-radius:50% !important;
+  background:#fff !important;
+  color:#10233f !important;
+  box-shadow:0 7px 22px rgba(16,35,63,.22) !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+  user-select:none !important;
+  font-family:Arial,sans-serif !important;
+  font-size:25px !important;
+  line-height:1 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  touch-action:manipulation !important;
+}
+#themeToggle:hover{
+  transform:translateY(-2px) !important;
+}
+#themeSun{display:none !important;}
+#themeMoon{display:inline !important;}
+html[data-theme="dark"] #themeToggle{
+  background:#17263c !important;
+  color:#fff !important;
+  border-color:#526d8e !important;
+  box-shadow:0 7px 24px rgba(0,0,0,.5) !important;
+}
+html[data-theme="dark"] #themeMoon{display:none !important;}
+html[data-theme="dark"] #themeSun{display:inline !important;}
+@media(max-width:760px){
+  #themeToggle{
+    right:16px !important;
+    bottom:16px !important;
+    width:46px !important;
+    height:46px !important;
+  }
+}
+
+
+/* FINAL ACCESSIBILITY / DARK THEME CONTRAST FIXES */
+html[data-theme="dark"] body{
+  color:#e8eef7 !important;
+}
+
+/* Replace dark navy text that becomes too low-contrast on dark backgrounds */
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .section *{
+  --text-dark:#d9e3ef;
+  --text-muted:#b9c7d8;
+}
+
+/* Main dark-theme text */
+html[data-theme="dark"] .about-text,
+html[data-theme="dark"] .about-text *,
+html[data-theme="dark"] .experience-item,
+html[data-theme="dark"] .experience-item *,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .project-card *,
+html[data-theme="dark"] .architecture-card,
+html[data-theme="dark"] .architecture-card *,
+html[data-theme="dark"] .highlight-card,
+html[data-theme="dark"] .highlight-card *,
+html[data-theme="dark"] .timeline-item,
+html[data-theme="dark"] .timeline-item *,
+html[data-theme="dark"] .what-i-bring,
+html[data-theme="dark"] .what-i-bring *{
+  color:#d9e3ef !important;
+}
+
+/* Keep headings bright */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .card-title,
+html[data-theme="dark"] .project-title{
+  color:#f7faff !important;
+}
+
+/* Muted/supporting text */
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .text-muted,
+html[data-theme="dark"] .section-intro,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] small{
+  color:#b9c7d8 !important;
+}
+
+/* Links and accent text: brighter blue instead of dark navy */
+html[data-theme="dark"] a,
+html[data-theme="dark"] .link,
+html[data-theme="dark"] .accent,
+html[data-theme="dark"] .highlight{
+  color:#7fc1ff !important;
+}
+
+/*
+  Some cards in the original light theme use a WHITE background.
+  In dark mode keep those cards white, but force their headings/text
+  to dark colors so they remain readable.
+*/
+html[data-theme="dark"] .card[style*="background"],
+html[data-theme="dark"] .card.white,
+html[data-theme="dark"] .white-card,
+html[data-theme="dark"] .skill-card[style*="background"],
+html[data-theme="dark"] .project-card[style*="background"]{
+  background:#ffffff !important;
+  color:#24364d !important;
+  border-color:#d8e2ed !important;
+}
+html[data-theme="dark"] .card[style*="background"] h1,
+html[data-theme="dark"] .card[style*="background"] h2,
+html[data-theme="dark"] .card[style*="background"] h3,
+html[data-theme="dark"] .card[style*="background"] h4,
+html[data-theme="dark"] .card.white h1,
+html[data-theme="dark"] .card.white h2,
+html[data-theme="dark"] .card.white h3,
+html[data-theme="dark"] .card.white h4,
+html[data-theme="dark"] .white-card h1,
+html[data-theme="dark"] .white-card h2,
+html[data-theme="dark"] .white-card h3,
+html[data-theme="dark"] .white-card h4{
+  color:#10233f !important;
+}
+html[data-theme="dark"] .card[style*="background"] p,
+html[data-theme="dark"] .card[style*="background"] li,
+html[data-theme="dark"] .card.white p,
+html[data-theme="dark"] .card.white li,
+html[data-theme="dark"] .white-card p,
+html[data-theme="dark"] .white-card li{
+  color:#43566c !important;
+}
+
+/* If a card remains white due to an inline style, its generic descendants
+   should still use readable dark text. */
+html[data-theme="dark"] [style*="background:#fff"],
+html[data-theme="dark"] [style*="background: #fff"],
+html[data-theme="dark"] [style*="background:white"],
+html[data-theme="dark"] [style*="background: white"]{
+  color:#24364d !important;
+}
+html[data-theme="dark"] [style*="background:#fff"] h1,
+html[data-theme="dark"] [style*="background:#fff"] h2,
+html[data-theme="dark"] [style*="background:#fff"] h3,
+html[data-theme="dark"] [style*="background:#fff"] h4,
+html[data-theme="dark"] [style*="background: #fff"] h1,
+html[data-theme="dark"] [style*="background: #fff"] h2,
+html[data-theme="dark"] [style*="background: #fff"] h3,
+html[data-theme="dark"] [style*="background: #fff"] h4{
+  color:#10233f !important;
+}
+
+
+/* ===== FINAL DARK MODE: SECTION-BY-SECTION CONTRAST ===== */
+html[data-theme="dark"]{
+  color-scheme:dark;
+}
+
+/* Hero */
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] #home{
+  color:#eef5ff !important;
+}
+html[data-theme="dark"] .hero *,
+html[data-theme="dark"] #home *{
+  border-color:#2a405c;
+}
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .hero h2,
+html[data-theme="dark"] .hero h3,
+html[data-theme="dark"] .hero .name,
+html[data-theme="dark"] .hero .title{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .hero span,
+html[data-theme="dark"] .hero li{
+  color:#d2deec !important;
+}
+html[data-theme="dark"] .hero .tag,
+html[data-theme="dark"] .hero .chip,
+html[data-theme="dark"] .hero .badge{
+  background:#19304b !important;
+  color:#dcecff !important;
+  border-color:#3d5d80 !important;
+}
+
+/* Engineering Highlights */
+html[data-theme="dark"] #highlights,
+html[data-theme="dark"] #highlights *{
+  color:#d9e4f0 !important;
+}
+html[data-theme="dark"] #highlights h1,
+html[data-theme="dark"] #highlights h2,
+html[data-theme="dark"] #highlights h3,
+html[data-theme="dark"] #highlights h4{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #highlights .section-kicker,
+html[data-theme="dark"] #highlights .eyebrow{
+  color:#86c5ff !important;
+}
+
+/* About Me */
+html[data-theme="dark"] #about,
+html[data-theme="dark"] #about *{
+  color:#d6e1ed !important;
+}
+html[data-theme="dark"] #about h1,
+html[data-theme="dark"] #about h2,
+html[data-theme="dark"] #about h3,
+html[data-theme="dark"] #about h4{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #about .section-kicker,
+html[data-theme="dark"] #about .eyebrow{
+  color:#86c5ff !important;
+}
+
+/* Skills */
+html[data-theme="dark"] #skills,
+html[data-theme="dark"] #skills *{
+  color:#d7e2ee !important;
+}
+html[data-theme="dark"] #skills h1,
+html[data-theme="dark"] #skills h2,
+html[data-theme="dark"] #skills h3,
+html[data-theme="dark"] #skills h4{
+  color:#ffffff !important;
+}
+
+/* Architecture */
+html[data-theme="dark"] #architecture,
+html[data-theme="dark"] #architecture *{
+  color:#d6e1ed !important;
+}
+html[data-theme="dark"] #architecture h1,
+html[data-theme="dark"] #architecture h2,
+html[data-theme="dark"] #architecture h3,
+html[data-theme="dark"] #architecture h4{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #architecture .section-kicker,
+html[data-theme="dark"] #architecture .eyebrow{
+  color:#86c5ff !important;
+}
+
+/* Career */
+html[data-theme="dark"] #career,
+html[data-theme="dark"] #career *{
+  color:#d6e1ed !important;
+}
+html[data-theme="dark"] #career h1,
+html[data-theme="dark"] #career h2,
+html[data-theme="dark"] #career h3,
+html[data-theme="dark"] #career h4{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #career .section-kicker,
+html[data-theme="dark"] #career .eyebrow,
+html[data-theme="dark"] #career .date{
+  color:#86c5ff !important;
+}
+
+/* Experience */
+html[data-theme="dark"] #experience,
+html[data-theme="dark"] #experience *{
+  color:#d6e1ed !important;
+}
+html[data-theme="dark"] #experience h1,
+html[data-theme="dark"] #experience h2,
+html[data-theme="dark"] #experience h3,
+html[data-theme="dark"] #experience h4,
+html[data-theme="dark"] #experience strong{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #experience .section-kicker,
+html[data-theme="dark"] #experience .eyebrow,
+html[data-theme="dark"] #experience .role,
+html[data-theme="dark"] #experience .company,
+html[data-theme="dark"] #experience .date{
+  color:#86c5ff !important;
+}
+
+/* Projects */
+html[data-theme="dark"] #projects,
+html[data-theme="dark"] #projects *{
+  color:#d6e1ed !important;
+}
+html[data-theme="dark"] #projects h1,
+html[data-theme="dark"] #projects h2,
+html[data-theme="dark"] #projects h3,
+html[data-theme="dark"] #projects h4,
+html[data-theme="dark"] #projects strong{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #projects .section-kicker,
+html[data-theme="dark"] #projects .eyebrow{
+  color:#86c5ff !important;
+}
+html[data-theme="dark"] #projects a{
+  color:#8dccff !important;
+}
+
+/* What I Bring */
+html[data-theme="dark"] #what-i-bring,
+html[data-theme="dark"] #what-i-bring *{
+  color:#d6e1ed !important;
+}
+html[data-theme="dark"] #what-i-bring h1,
+html[data-theme="dark"] #what-i-bring h2,
+html[data-theme="dark"] #what-i-bring h3,
+html[data-theme="dark"] #what-i-bring h4{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #what-i-bring .section-kicker,
+html[data-theme="dark"] #what-i-bring .eyebrow{
+  color:#86c5ff !important;
+}
+
+/* Contact */
+html[data-theme="dark"] #contact,
+html[data-theme="dark"] #contact *{
+  color:#eef5ff !important;
+}
+html[data-theme="dark"] #contact h1,
+html[data-theme="dark"] #contact h2,
+html[data-theme="dark"] #contact h3,
+html[data-theme="dark"] #contact h4{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #contact .section-kicker,
+html[data-theme="dark"] #contact .eyebrow{
+  color:#b9dcff !important;
+}
+html[data-theme="dark"] #contact a{
+  color:#ffffff !important;
+}
+
+/* LinkedIn button / social button */
+html[data-theme="dark"] #contact a[href*="linkedin"],
+html[data-theme="dark"] a.linkedin,
+html[data-theme="dark"] .linkedin{
+  color:#ffffff !important;
+  background:#1769aa !important;
+  border-color:#3f9bd6 !important;
+}
+
+/* Email button */
+html[data-theme="dark"] #contact a[href^="mailto"],
+html[data-theme="dark"] a.email{
+  color:#10233f !important;
+  background:#ffffff !important;
+  border-color:#ffffff !important;
+}
+
+/* Generic section headings and body fallback */
+html[data-theme="dark"] section h1,
+html[data-theme="dark"] section h2,
+html[data-theme="dark"] section h3{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] section p,
+html[data-theme="dark"] section li{
+  color:#d1dce9 !important;
+}
+
+/* Preserve white cards if any; force readable dark content */
+html[data-theme="dark"] .white-card,
+html[data-theme="dark"] .card.white{
+  background:#ffffff !important;
+}
+html[data-theme="dark"] .white-card *,
+html[data-theme="dark"] .card.white *{
+  color:#34485e !important;
+}
+html[data-theme="dark"] .white-card h1,
+html[data-theme="dark"] .white-card h2,
+html[data-theme="dark"] .white-card h3,
+html[data-theme="dark"] .card.white h1,
+html[data-theme="dark"] .card.white h2,
+html[data-theme="dark"] .card.white h3{
+  color:#10233f !important;
+}
+
+
+/* FINAL REFINEMENT:
+   Dark text is preserved on genuinely white cards.
+   Only sections/cards with dark backgrounds switch to light text. */
+
+/* White cards: retain normal black/dark text */
+html[data-theme="dark"] .white-card,
+html[data-theme="dark"] .card.white{
+  background:#ffffff !important;
+  color:#10233f !important;
+}
+html[data-theme="dark"] .white-card h1,
+html[data-theme="dark"] .white-card h2,
+html[data-theme="dark"] .white-card h3,
+html[data-theme="dark"] .white-card h4,
+html[data-theme="dark"] .white-card p,
+html[data-theme="dark"] .white-card li,
+html[data-theme="dark"] .card.white h1,
+html[data-theme="dark"] .card.white h2,
+html[data-theme="dark"] .card.white h3,
+html[data-theme="dark"] .card.white h4,
+html[data-theme="dark"] .card.white p,
+html[data-theme="dark"] .card.white li{
+  color:#10233f !important;
+}
+
+/* Explicitly keep inline white-background cards readable */
+html[data-theme="dark"] [style*="background:#fff"],
+html[data-theme="dark"] [style*="background: #fff"],
+html[data-theme="dark"] [style*="background:white"],
+html[data-theme="dark"] [style*="background: white"]{
+  color:#10233f !important;
+}
+html[data-theme="dark"] [style*="background:#fff"] h1,
+html[data-theme="dark"] [style*="background:#fff"] h2,
+html[data-theme="dark"] [style*="background:#fff"] h3,
+html[data-theme="dark"] [style*="background:#fff"] h4,
+html[data-theme="dark"] [style*="background:#fff"] p,
+html[data-theme="dark"] [style*="background:#fff"] li,
+html[data-theme="dark"] [style*="background: #fff"] h1,
+html[data-theme="dark"] [style*="background: #fff"] h2,
+html[data-theme="dark"] [style*="background: #fff"] h3,
+html[data-theme="dark"] [style*="background: #fff"] h4,
+html[data-theme="dark"] [style*="background: #fff"] p,
+html[data-theme="dark"] [style*="background: #fff"] li{
+  color:#10233f !important;
+}
+
+/* Dark-background sections: readable light text */
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] #highlights,
+html[data-theme="dark"] #architecture,
+html[data-theme="dark"] #career,
+html[data-theme="dark"] #experience,
+html[data-theme="dark"] #projects,
+html[data-theme="dark"] #what-i-bring,
+html[data-theme="dark"] #contact{
+  color:#d8e3ef !important;
+}
+
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .hero h2,
+html[data-theme="dark"] .hero h3,
+html[data-theme="dark"] #highlights h1,
+html[data-theme="dark"] #highlights h2,
+html[data-theme="dark"] #highlights h3,
+html[data-theme="dark"] #architecture h1,
+html[data-theme="dark"] #architecture h2,
+html[data-theme="dark"] #architecture h3,
+html[data-theme="dark"] #career h1,
+html[data-theme="dark"] #career h2,
+html[data-theme="dark"] #career h3,
+html[data-theme="dark"] #experience h1,
+html[data-theme="dark"] #experience h2,
+html[data-theme="dark"] #experience h3,
+html[data-theme="dark"] #projects h1,
+html[data-theme="dark"] #projects h2,
+html[data-theme="dark"] #projects h3,
+html[data-theme="dark"] #what-i-bring h1,
+html[data-theme="dark"] #what-i-bring h2,
+html[data-theme="dark"] #what-i-bring h3,
+html[data-theme="dark"] #contact h1,
+html[data-theme="dark"] #contact h2,
+html[data-theme="dark"] #contact h3{
+  color:#ffffff !important;
+}
+
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] #highlights p,
+html[data-theme="dark"] #architecture p,
+html[data-theme="dark"] #career p,
+html[data-theme="dark"] #experience p,
+html[data-theme="dark"] #projects p,
+html[data-theme="dark"] #what-i-bring p{
+  color:#c8d5e3 !important;
+}
+
+
+/* ===== CORRECT DARK THEME RULE =====
+   Light/white cards keep dark text.
+   Only the surrounding dark sections use light text. */
+
+/* Engineering Highlights: white cards */
+html[data-theme="dark"] .engineering-card{
+  background:#ffffff !important;
+  color:#10233f !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] .engineering-card h3{
+  color:#10233f !important;
+}
+html[data-theme="dark"] .engineering-card p{
+  color:#4b5f76 !important;
+}
+
+/* About / professional-strength panel: light card */
+html[data-theme="dark"] .strength-panel{
+  background:linear-gradient(135deg,#f4f9ff,#edf6ff) !important;
+  color:#10233f !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] .strength-row h3{
+  color:#10233f !important;
+}
+html[data-theme="dark"] .strength-row p{
+  color:#52667d !important;
+}
+
+/* Architecture: light outer card + white architecture nodes */
+html[data-theme="dark"] .architecture-box{
+  background:linear-gradient(135deg,#f4f9ff,#edf6ff) !important;
+  color:#10233f !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] .arch-node{
+  background:#ffffff !important;
+  color:#10233f !important;
+  border-color:#cfe1f5 !important;
+}
+html[data-theme="dark"] .arch-node strong{
+  color:#10233f !important;
+}
+html[data-theme="dark"] .arch-node span{
+  color:#52667d !important;
+}
+html[data-theme="dark"] .arch-arrow{
+  color:#56718f !important;
+}
+html[data-theme="dark"] .arch-tech span{
+  background:#ffffff !important;
+  color:#344966 !important;
+  border-color:#cfe1f5 !important;
+}
+
+/* Projects: white cards */
+html[data-theme="dark"] .project{
+  background:#ffffff !important;
+  color:#10233f !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] .project h3{
+  color:#10233f !important;
+}
+html[data-theme="dark"] .project-year{
+  color:#64758a !important;
+}
+html[data-theme="dark"] .project-type{
+  color:#176fc1 !important;
+}
+html[data-theme="dark"] .project p{
+  color:#4b5f76 !important;
+}
+html[data-theme="dark"] .project .rating{
+  color:#40566e !important;
+}
+html[data-theme="dark"] .project .project-link{
+  color:#087ee5 !important;
+}
+
+/* What I Bring: light cards */
+html[data-theme="dark"] .bring-card{
+  background:linear-gradient(135deg,#f5faff,#edf6ff) !important;
+  color:#10233f !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] .bring-card .bring-number{
+  color:#176fc1 !important;
+}
+html[data-theme="dark"] .bring-card h3{
+  color:#10233f !important;
+}
+html[data-theme="dark"] .bring-card p{
+  color:#4b5f76 !important;
+}
+
+/* Skills pills are white/light cards too */
+html[data-theme="dark"] .skill-pill{
+  background:#ffffff !important;
+  color:#344966 !important;
+  border-color:#cfe1f5 !important;
+}
+
+/* Career timeline text sits on dark background, so keep it light */
+html[data-theme="dark"] #career .career-step h3{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #career .career-step p{
+  color:#c8d5e3 !important;
+}
+html[data-theme="dark"] #career .career-year{
+  color:#86c5ff !important;
+}
+
+/* Experience is directly on the dark page background */
+html[data-theme="dark"] #experience .role-date{
+  color:#eaf2fb !important;
+}
+html[data-theme="dark"] #experience .role-date small{
+  color:#aebed0 !important;
+}
+html[data-theme="dark"] #experience .role h3{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] #experience .company{
+  color:#9bcaff !important;
+}
+html[data-theme="dark"] #experience .role li{
+  color:#c8d5e3 !important;
+}
+html[data-theme="dark"] #experience .role li strong{
+  color:#f2f7fc !important;
+}
+html[data-theme="dark"] #experience .current{
+  background:#193858 !important;
+  color:#9ed0ff !important;
+}
+
+/* Contact is intentionally a dark blue panel */
+html[data-theme="dark"] .contact-box,
+html[data-theme="dark"] .contact-box *{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] .contact-box p{
+  color:#d9e7f5 !important;
+}
+html[data-theme="dark"] .contact-box .section-kicker{
+  color:#b8dcff !important;
+}
+
+
+/* =========================================================
+   FINAL CONTRAST PASS
+   Rule:
+   1) White/light cards = BLACK/DARK text
+   2) Dark page sections = LIGHT text
+   ========================================================= */
+
+/* ---------- WHITE CARD: ABOUT STRENGTHS ---------- */
+html[data-theme="dark"] section#about .strength-panel,
+html[data-theme="dark"] section#about .strength-panel * {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#about .strength-panel {
+  background:linear-gradient(135deg,#f4f9ff,#edf6ff) !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] section#about .strength-panel .strength-row h3 {
+  color:#000000 !important;
+}
+html[data-theme="dark"] section#about .strength-panel .strength-row p {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#about .strength-panel .strength-icon {
+  color:#147bea !important;
+}
+
+/* ---------- WHITE CARDS: ENGINEERING HIGHLIGHTS ---------- */
+html[data-theme="dark"] section#engineering-highlights .engineering-card,
+html[data-theme="dark"] section#engineering-highlights .engineering-card * {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#engineering-highlights .engineering-card {
+  background:#ffffff !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] section#engineering-highlights .engineering-card h3 {
+  color:#000000 !important;
+}
+html[data-theme="dark"] section#engineering-highlights .engineering-card p {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#engineering-highlights .engineering-icon,
+html[data-theme="dark"] section#engineering-highlights .engineering-icon i {
+  color:#147bea !important;
+}
+
+/* ---------- WHITE PILLS: TECHNICAL SKILLS ---------- */
+html[data-theme="dark"] section#skills .skill-pill,
+html[data-theme="dark"] section#skills .skill-pill * {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#skills .skill-pill {
+  background:#ffffff !important;
+  border-color:#cfe1f5 !important;
+}
+
+/* ---------- WHITE CARD: ARCHITECTURE ---------- */
+html[data-theme="dark"] section#architecture .architecture-box {
+  background:linear-gradient(135deg,#f4f9ff,#edf6ff) !important;
+  border-color:#d8e3ef !important;
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#architecture .architecture-box .arch-node {
+  background:#ffffff !important;
+  border-color:#cfe1f5 !important;
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#architecture .architecture-box .arch-node strong {
+  color:#000000 !important;
+}
+html[data-theme="dark"] section#architecture .architecture-box .arch-node span {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#architecture .architecture-box .arch-arrow {
+  color:#536b86 !important;
+}
+html[data-theme="dark"] section#architecture .architecture-box .arch-tech span {
+  background:#ffffff !important;
+  border-color:#cfe1f5 !important;
+  color:#111827 !important;
+}
+
+/* ---------- WHITE CARDS: PROJECTS ---------- */
+html[data-theme="dark"] section#projects .project,
+html[data-theme="dark"] section#projects .project * {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#projects .project {
+  background:#ffffff !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] section#projects .project h3 {
+  color:#000000 !important;
+}
+html[data-theme="dark"] section#projects .project .project-year {
+  color:#4b5563 !important;
+}
+html[data-theme="dark"] section#projects .project .project-type {
+  color:#126fc1 !important;
+}
+html[data-theme="dark"] section#projects .project p {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#projects .project .rating {
+  color:#374151 !important;
+}
+html[data-theme="dark"] section#projects .project .project-link {
+  color:#0678e8 !important;
+}
+
+/* ---------- WHITE CARDS: WHAT I BRING ---------- */
+html[data-theme="dark"] section#what-i-bring .bring-card,
+html[data-theme="dark"] section#what-i-bring .bring-card * {
+  color:#111827 !important;
+}
+html[data-theme="dark"] section#what-i-bring .bring-card {
+  background:linear-gradient(135deg,#f5faff,#edf6ff) !important;
+  border-color:#d8e3ef !important;
+}
+html[data-theme="dark"] section#what-i-bring .bring-card .bring-number {
+  color:#126fc1 !important;
+}
+html[data-theme="dark"] section#what-i-bring .bring-card h3 {
+  color:#000000 !important;
+}
+html[data-theme="dark"] section#what-i-bring .bring-card p {
+  color:#111827 !important;
+}
+
+/* ---------- DARK PAGE CONTENT: ABOUT COPY ---------- */
+html[data-theme="dark"] section#about .about-copy,
+html[data-theme="dark"] section#about .about-copy p {
+  color:#d3deeb !important;
+}
+html[data-theme="dark"] section#about .about-copy h2 {
+  color:#ffffff !important;
+}
+
+/* ---------- DARK PAGE CONTENT: CAREER ---------- */
+html[data-theme="dark"] section#career .career-step h3 {
+  color:#ffffff !important;
+}
+html[data-theme="dark"] section#career .career-step p {
+  color:#cbd7e4 !important;
+}
+html[data-theme="dark"] section#career .career-year {
+  color:#86c5ff !important;
+}
+
+/* ---------- DARK PAGE CONTENT: EXPERIENCE ---------- */
+html[data-theme="dark"] section#experience .role h3 {
+  color:#ffffff !important;
+}
+html[data-theme="dark"] section#experience .role-date {
+  color:#e8f0f8 !important;
+}
+html[data-theme="dark"] section#experience .role-date small {
+  color:#aebdcd !important;
+}
+html[data-theme="dark"] section#experience .company {
+  color:#8fc8ff !important;
+}
+html[data-theme="dark"] section#experience .role li {
+  color:#cbd7e4 !important;
+}
+html[data-theme="dark"] section#experience .role li strong {
+  color:#f5f8fc !important;
+}
+
+/* ---------- DARK PAGE CONTENT: SECTION HEADINGS ---------- */
+html[data-theme="dark"] section#engineering-highlights > .container > .section-title,
+html[data-theme="dark"] section#architecture > .container > .section-title,
+html[data-theme="dark"] section#career > .container > .section-title,
+html[data-theme="dark"] section#experience > .container > .section-title,
+html[data-theme="dark"] section#projects > .container > .section-title,
+html[data-theme="dark"] section#what-i-bring > .container > .section-title {
+  color:#ffffff !important;
+}
+html[data-theme="dark"] section#engineering-highlights > .container > .section-intro,
+html[data-theme="dark"] section#architecture > .container > .section-intro,
+html[data-theme="dark"] section#career > .container > .section-intro,
+html[data-theme="dark"] section#projects > .container > .section-intro,
+html[data-theme="dark"] section#what-i-bring > .container > .section-intro {
+  color:#cbd7e4 !important;
+}
+
+/* ---------- CONTACT: DARK BLUE PANEL ---------- */
+html[data-theme="dark"] section#contact .contact-box {
+  background:linear-gradient(135deg,#12315a,#0d2341) !important;
+}
+html[data-theme="dark"] section#contact .contact-box .section-kicker {
+  color:#b9dcff !important;
+}
+html[data-theme="dark"] section#contact .contact-box h2 {
+  color:#ffffff !important;
+}
+html[data-theme="dark"] section#contact .contact-box p {
+  color:#d9e7f5 !important;
+}
+html[data-theme="dark"] section#contact .contact-box .btn-primary {
+  background:#ffffff !important;
+  color:#10233f !important;
+  border-color:#ffffff !important;
+}
+html[data-theme="dark"] section#contact .contact-box .btn-secondary {
+  background:#1769aa !important;
+  color:#ffffff !important;
+  border-color:#4aa3dc !important;
+}
+
+/* ---------- FLOATING THEME BUTTON ---------- */
+html[data-theme="dark"] #themeToggle {
+  background:#17263c !important;
+  color:#ffffff !important;
+  border-color:#5a7596 !important;
+}
+
 </style>
 </head>
 
@@ -994,41 +1862,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-<script>
-(function(){
-  function initThemeToggle(){
-    var root=document.documentElement;
-    var btn=document.getElementById('themeToggle');
-    if(!btn || btn.dataset.themeReady==='1') return;
-    btn.dataset.themeReady='1';
 
-    var saved=null;
-    try { saved=localStorage.getItem('kk-portfolio-theme'); } catch(e) {}
-    var theme=(saved==='dark'||saved==='light') ? saved :
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
-
-    function apply(t){
-      root.setAttribute('data-theme',t);
-      var dark=t==='dark';
-      btn.setAttribute('aria-label', dark ? 'Disable dark mode' : 'Enable dark mode');
-      btn.setAttribute('title', dark ? 'Disable dark mode' : 'Enable dark mode');
-    }
-
-    apply(theme);
-    btn.onclick=function(){
-      var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
-      apply(next);
-      try { localStorage.setItem('kk-portfolio-theme',next); } catch(e) {}
-    };
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',initThemeToggle);
-  }else{
-    initThemeToggle();
-  }
-})();
-</script>
 
 
 <script>
@@ -1138,43 +1972,49 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 </script>
 
-<button id="themeToggle" class="floating-theme-toggle" type="button"
-aria-label="Enable dark mode" title="Enable dark mode">
-<span class="moon-icon">☾</span><span class="sun-icon">☀</span>
+
+
+
+
+<button id="themeToggle" type="button" aria-label="Enable dark mode" title="Enable dark mode">
+  <span id="themeMoon" aria-hidden="true">☾</span>
+  <span id="themeSun" aria-hidden="true">☀</span>
 </button>
 
 <script>
-(function () {
-  function initTheme() {
-    var root = document.documentElement;
-    var btn = document.getElementById("themeToggle");
-    if (!btn || btn.dataset.ready) return;
-    btn.dataset.ready = "1";
+(function(){
+  function setupThemeButton(){
+    var root=document.documentElement;
+    var btn=document.getElementById('themeToggle');
+    if(!btn || btn.getAttribute('data-bound')==='true') return;
+    btn.setAttribute('data-bound','true');
 
-    var saved = null;
-    try { saved = localStorage.getItem("kk-portfolio-theme"); } catch (e) {}
-    var theme = (saved === "dark" || saved === "light") ? saved : "light";
+    var saved=null;
+    try { saved=window.localStorage.getItem('kk-portfolio-theme'); } catch(e) {}
+    var theme=(saved==='dark'||saved==='light') ? saved : 'light';
 
-    function apply(themeName) {
-      root.setAttribute("data-theme", themeName);
-      var dark = themeName === "dark";
-      btn.setAttribute("aria-label", dark ? "Disable dark mode" : "Enable dark mode");
-      btn.setAttribute("title", dark ? "Disable dark mode" : "Enable dark mode");
+    function applyTheme(t){
+      root.setAttribute('data-theme',t);
+      var dark=(t==='dark');
+      btn.setAttribute('aria-label',dark?'Disable dark mode':'Enable dark mode');
+      btn.setAttribute('title',dark?'Disable dark mode':'Enable dark mode');
     }
 
-    apply(theme);
+    applyTheme(theme);
 
-    btn.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      apply(next);
-      try { localStorage.setItem("kk-portfolio-theme", next); } catch (e) {}
-    });
+    btn.onclick=function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+      applyTheme(next);
+      try { window.localStorage.setItem('kk-portfolio-theme',next); } catch(e) {}
+    };
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initTheme);
-  } else {
-    initTheme();
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',setupThemeButton);
+  }else{
+    setupThemeButton();
   }
 })();
 </script>
