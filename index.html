@@ -1627,6 +1627,95 @@ html[data-theme="dark"] .hero .contact-strip > span,
 html[data-theme="dark"] .hero .contact-strip > span a {
   color: #dbe7f6 !important;
 }
+
+/* Email Me icon: ensure strong contrast on the blue primary button */
+#contact .contact-actions .btn-primary svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: inline-block !important;
+  flex: 0 0 20px !important;
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+  fill: none !important;
+  opacity: 1 !important;
+}
+#contact .contact-actions .btn-primary svg * {
+  stroke: #ffffff !important;
+  fill: none !important;
+  opacity: 1 !important;
+}
+</style>
+
+<style id="final-targeted-fixes">
+/* Email Me icon: visible blue in day and dark modes */
+#contact .contact-actions .btn-primary .email-icon svg,
+#contact .contact-actions .btn-primary .email-icon svg rect,
+#contact .contact-actions .btn-primary .email-icon svg path {
+  color: #147bea !important;
+  fill: none !important;
+  stroke: #147bea !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+/* Download Resume text: white in dark mode */
+html[data-theme="dark"] .nav-resume,
+html[data-theme="dark"] .nav-resume * {
+  color: #fff !important;
+}
+/* Keep navigation text color identical in light and dark modes */
+html[data-theme="dark"] .nav-links a,
+html[data-theme="dark"] .nav-links a:visited {
+  color: #53627d !important;
+}
+html[data-theme="dark"] .nav-links a:hover,
+html[data-theme="dark"] .nav-links a.active {
+  color: #147bea !important;
+}
+</style>
+
+<style id="email-icon-final-contrast-fix">
+/* Final Email Me icon fix: white on the blue primary button */
+#contact .contact-actions a.btn.btn-primary span.email-icon svg,
+#contact .contact-actions a.btn.btn-primary span.email-icon svg * {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#contact .contact-actions a.btn.btn-primary span.email-icon svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+  flex: 0 0 20px !important;
+  overflow: visible !important;
+}
+</style>
+<style id="email-button-theme-fix">
+/* Email Me button: white icon/text in light mode; dark icon/text in dark mode. */
+#contact .contact-actions a.btn.btn-primary {
+  color:#ffffff !important;
+}
+#contact .contact-actions a.btn.btn-primary .email-icon,
+#contact .contact-actions a.btn.btn-primary .email-icon svg,
+#contact .contact-actions a.btn.btn-primary .email-icon svg * {
+  color:#ffffff !important;
+  stroke:#ffffff !important;
+  fill:none !important;
+}
+html[data-theme="dark"] #contact .contact-actions a.btn.btn-primary {
+  color:#10233f !important;
+}
+html[data-theme="dark"] #contact .contact-actions a.btn.btn-primary .email-icon,
+html[data-theme="dark"] #contact .contact-actions a.btn.btn-primary .email-icon svg,
+html[data-theme="dark"] #contact .contact-actions a.btn.btn-primary .email-icon svg * {
+  color:#10233f !important;
+  stroke:#10233f !important;
+  fill:none !important;
+}
 </style>
 </head>
 
@@ -1885,9 +1974,9 @@ html[data-theme="dark"] .hero .contact-strip > span a {
       <div class="contact-actions">
         <a class="btn btn-primary" href="mailto:kumarsamy19792@gmail.com">
           <span class="email-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <rect x="3.5" y="5.5" width="17" height="13" rx="1.5"></rect>
-              <path d="M4.5 7l7.5 6 7.5-6"></path>
+            <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true" style="display:block;width:20px;height:20px;overflow:visible;fill:none;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;color:#ffffff;">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" fill="none" stroke="#ffffff"></rect>
+              <path d="M4.5 7l7.5 6 7.5-6" fill="none" stroke="#ffffff"></path>
             </svg>
           </span> Email Me
         </a>
