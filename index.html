@@ -56,11 +56,13 @@
       gap: 24px;
     }
     .brand {
+      text-decoration: none;
+      color: var(--navy);
       font-weight: 800;
       letter-spacing: -.04em;
       font-size: 1.05rem;
     }
-    .brand span { color: var(--accent); }
+    .brand span { color: inherit; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -71,6 +73,32 @@
     }
     .nav-links a { text-decoration: none; }
     .nav-links a:hover { color: var(--accent); }
+
+    .nav-links a {
+      position: relative;
+      padding: 7px 0;
+      transition: color .2s ease;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
 
     /* Hero */
     .hero {
@@ -395,7 +423,7 @@
 <body>
 <nav>
   <div class="container nav-inner">
-    <a class="brand" href="#top">Kumarasamy<span>.</span></a>
+    <a class="brand" href="#top">Kumarasamy K</a>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#strengths">Strengths</a>
@@ -467,7 +495,7 @@
 
     <div class="stats">
       <div class="stat"><strong>12+</strong><span>Years of software engineering</span></div>
-      <div class="stat"><strong>80+</strong><span>Activities modernized</span></div>
+      <div class="stat"><strong>Modern</strong><span>Android architecture &amp; modernization</span></div>
       <div class="stat"><strong>10K+</strong><span>WhatMate downloads</span></div>
       <div class="stat"><strong>5.0★</strong><span>CVMine rating</span></div>
     </div>
@@ -629,5 +657,51 @@
 <footer>
   © 2026 Kumarasamy K · Senior Android Developer
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = [...document.querySelectorAll(".nav-links a")];
+    const sections = navLinks
+      .map(link => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      navLinks.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + id
+        );
+      });
+    };
+
+    // Keep the clicked section highlighted immediately.
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const id = link.getAttribute("href").slice(1);
+        setActive(id);
+      });
+    });
+
+    // Update the highlighted section while scrolling.
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visible.length) {
+        setActive(visible[0].target.id);
+      }
+    }, {
+      rootMargin: "-25% 0px -60% 0px",
+      threshold: [0.05, 0.2, 0.5, 0.8]
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Hero is selected initially.
+    setActive("top");
+  });
+</script>
+
 </body>
 </html>
