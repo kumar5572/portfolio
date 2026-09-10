@@ -1444,6 +1444,189 @@ html[data-theme="dark"] #themeToggle {
   border-color:#5a7596 !important;
 }
 
+
+/* v22: replace the cropped Email Me glyph with a clean inline SVG envelope. */
+.contact-actions .btn-primary .email-icon{
+  width:20px !important;
+  height:20px !important;
+  flex:0 0 20px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#147bea !important;
+  margin:0 !important;
+  overflow:visible !important;
+  line-height:1 !important;
+  stroke:#147bea !important;
+}
+.contact-actions .btn-primary .email-icon svg{
+  width:20px !important;
+  height:20px !important;
+  display:block !important;
+  overflow:visible !important;
+  color:#147bea !important;
+  stroke:#147bea !important;
+}
+.contact-actions .btn-primary .email-icon rect,
+.contact-actions .btn-primary .email-icon path{
+  fill:none !important;
+  stroke:#147bea !important;
+  stroke-width:1.8 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+html[data-theme="dark"] .contact-actions .btn-primary .email-icon{
+  color:#147bea !important;
+}
+
+/* v18 targeted fixes only: hero signature + Email Me icon */
+
+/* Hero signature was using light-theme navy; make it readable on dark hero. */
+html[data-theme="dark"] .hero .signature{
+  color:#ffffff !important;
+}
+html[data-theme="dark"] .hero .signature-tag{
+  color:#b9c9dc !important;
+}
+
+/* Email icon: use an explicit envelope glyph so it remains visible
+   even if the regular Font Awesome icon variant is unavailable. */
+.contact-actions .btn-primary .fa-envelope{
+  display:inline-block !important;
+  width:1em !important;
+  margin-right:6px !important;
+  color:#10233f !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  font-family:Arial,sans-serif !important;
+  font-style:normal !important;
+}
+.contact-actions .btn-primary .fa-envelope::before{
+  content:"\\2709" !important;
+  font-family:Arial,sans-serif !important;
+  font-weight:700 !important;
+}
+html[data-theme="dark"] .contact-actions .btn-primary .fa-envelope{
+  color:#10233f !important;
+}
+
+
+/* Consistent icon treatment across the portfolio.
+   Same light-blue/grey circle + blue icon, matching the hero visual language. */
+.stat-icon,
+.strength-icon,
+.engineering-icon{
+  background:#e5f1ff !important;
+  color:#147bea !important;
+  border-radius:50% !important;
+  display:grid !important;
+  place-items:center !important;
+}
+.stat-icon i,
+.strength-icon i,
+.engineering-icon i{
+  color:#147bea !important;
+  opacity:1 !important;
+}
+
+/* Keep the same treatment in dark mode — the icon circles remain light
+   against the dark page, rather than becoming dark themselves. */
+html[data-theme="dark"] .stat-icon,
+html[data-theme="dark"] .strength-icon,
+html[data-theme="dark"] .engineering-icon{
+  background:#e5f1ff !important;
+  color:#147bea !important;
+  border-color:transparent !important;
+}
+html[data-theme="dark"] .stat-icon i,
+html[data-theme="dark"] .strength-icon i,
+html[data-theme="dark"] .engineering-icon i{
+  color:#147bea !important;
+}
+
+/* Engineering cards use the same circular icon size as the other sections. */
+.engineering-icon{
+  width:42px !important;
+  height:42px !important;
+  margin-bottom:13px !important;
+}
+
+/* Keep the hero contact icons blue; don't add an unnecessary background circle
+   where the design currently uses inline contact icons. */
+.hero .contact-strip i{
+  color:#147bea !important;
+}
+html[data-theme="dark"] .hero .contact-strip i{
+  color:#69b4ff !important;
+}
+
+
+/* =========================================================
+   TARGETED FIX ONLY: ABOUT ICONS + EMAIL ICON
+   Same light-blue circle / blue icon treatment as hero.
+   ========================================================= */
+
+/* About Me strength icons */
+#about .strength-icon{
+  width:42px !important;
+  height:42px !important;
+  display:grid !important;
+  place-items:center !important;
+  background:#e5f1ff !important;
+  color:#147bea !important;
+  border:0 !important;
+  border-radius:50% !important;
+  box-sizing:border-box !important;
+}
+#about .strength-icon i{
+  color:#147bea !important;
+  font-size:1rem !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+/* Dark mode: About icon circles intentionally stay light */
+html[data-theme="dark"] #about .strength-icon{
+  background:#e5f1ff !important;
+  color:#147bea !important;
+}
+html[data-theme="dark"] #about .strength-icon i{
+  color:#147bea !important;
+}
+
+/* Email Me icon: use a visible envelope glyph, preserving button design */
+#contact .contact-actions .btn-primary .fa-envelope{
+  display:inline-block !important;
+  width:1em !important;
+  height:1em !important;
+  margin-right:7px !important;
+  color:#10233f !important;
+  font-family:Arial,sans-serif !important;
+  font-style:normal !important;
+  font-size:1em !important;
+  line-height:1 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+#contact .contact-actions .btn-primary .fa-envelope::before{
+  content:"✉" !important;
+  font-family:Arial,sans-serif !important;
+  font-weight:700 !important;
+}
+html[data-theme="dark"] #contact .contact-actions .btn-primary .fa-envelope{
+  color:#10233f !important;
+}
+
+
+/* TARGETED FIX: keep all three hero contact items in the same text color */
+.hero .contact-strip > span,
+.hero .contact-strip > span a {
+  color: #405370 !important;
+}
+html[data-theme="dark"] .hero .contact-strip > span,
+html[data-theme="dark"] .hero .contact-strip > span a {
+  color: #dbe7f6 !important;
+}
 </style>
 </head>
 
@@ -1701,7 +1884,12 @@ html[data-theme="dark"] #themeToggle {
       </div>
       <div class="contact-actions">
         <a class="btn btn-primary" href="mailto:kumarsamy19792@gmail.com">
-          <i class="fa-regular fa-envelope"></i> Email Me
+          <span class="email-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="1.5"></rect>
+              <path d="M4.5 7l7.5 6 7.5-6"></path>
+            </svg>
+          </span> Email Me
         </a>
         <a class="btn btn-secondary" href="https://www.linkedin.com/in/kumarasamy-k-b913a0135/" target="_blank" rel="noopener">
           <i class="fa-brands fa-linkedin"></i> LinkedIn
