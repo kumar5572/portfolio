@@ -15,7 +15,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}a{color:inherit}.container{width:min(1080px,calc(100% - 40px));margin:auto}
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(223,232,244,.9)}.nav-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--navy);font-weight:800;letter-spacing:-.04em;font-size:1.02rem}.brand-logo{width:34px;height:38px;display:flex;align-items:center;justify-content:center;flex:0 0 34px}.brand-logo img{width:34px;height:38px;object-fit:contain;display:block}.brand-name{white-space:nowrap;color:var(--navy)}
-.nav-links{display:flex;align-items:center;gap:25px;font-size:.78rem;font-weight:650;color:#53627d}.nav-links a{position:relative;padding:22px 0 18px;text-decoration:none}.nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:10px;height:2px;background:var(--blue);transform:scaleX(0);transition:.2s}.nav-links a:hover,.nav-links a.active{color:var(--blue)}.nav-links a.active:after{transform:scaleX(1)}
+.nav-links{display:flex;align-items:center;gap:15px;font-size:.70rem;font-weight:650;color:#53627d}.nav-links a{position:relative;padding:22px 0 18px;text-decoration:none}.nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:10px;height:2px;background:var(--blue);transform:scaleX(0);transition:.2s}.nav-links a:hover,.nav-links a.active{color:var(--blue)}.nav-links a.active:after{transform:scaleX(1)}
 .nav-resume{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;text-decoration:none;padding:10px 15px;border-radius:10px;font-size:.76rem;font-weight:750;white-space:nowrap;box-shadow:0 7px 18px rgba(11,115,246,.2)}.nav-resume:hover{background:#0566dc}.menu-toggle{display:none;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:9px;width:38px;height:38px;cursor:pointer}
 .hero{padding:62px 0 42px;background:radial-gradient(circle at 83% 25%,rgba(119,179,255,.22),transparent 28%),linear-gradient(180deg,#f4f9ff,#eef6ff)}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}.eyebrow{color:#4f607b;font-size:.7rem;text-transform:uppercase;letter-spacing:.24em;font-weight:800;margin-bottom:15px}h1{font-size:clamp(2.45rem,5vw,4rem);line-height:1.04;letter-spacing:-.06em;color:var(--navy);margin:0;max-width:650px}.hero h1 span{color:var(--navy)}.hero-lead{font-size:.95rem;color:#536684;max-width:610px;margin:20px 0 24px}.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:25px}.tag{background:rgba(255,255,255,.8);border:1px solid #dbe7f6;border-radius:8px;padding:5px 9px;color:#415572;font-size:.69rem;font-weight:650}.actions{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:9px;padding:10px 15px;font-size:.78rem;font-weight:750}.btn-primary{color:#fff;background:var(--blue);box-shadow:0 7px 18px rgba(11,115,246,.18)}.btn-secondary{color:var(--blue);background:#fff;border:1px solid #9bc8ff}.contact-strip{display:flex;flex-wrap:wrap;gap:15px;margin-top:23px;color:#405370;font-size:.7rem}.contact-strip a{text-decoration:none}.contact-strip i{color:var(--blue);margin-right:5px}
 .hero-visual{text-align:center}.profile-wrap{width:245px;height:245px;margin:auto;border-radius:50%;padding:7px;background:rgba(255,255,255,.72);box-shadow:0 12px 35px rgba(47,104,175,.13)}.profile{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff;display:block}.profile-fallback{background:linear-gradient(135deg,#dceeff,#a9d2ff);display:grid;place-items:center}.profile-fallback:after{content:"KK";font-size:3rem;font-weight:800;color:#10234d}.signature{font-family:cursive;font-size:2rem;color:var(--navy);margin:10px 0 2px;transform:rotate(-3deg)}.signature-tag{color:#52637e;font-size:.66rem;letter-spacing:.25em;font-weight:700}
@@ -29,6 +29,48 @@ section{padding:54px 0}.section-title{color:var(--navy);font-size:clamp(1.65rem,
 @media(max-width:900px){.nav-resume{display:none}.nav-links{gap:17px}.hero-grid{gap:35px}.stats{grid-template-columns:repeat(2,1fr)}.about-grid{gap:35px}}
 @media(max-width:760px){.container{width:min(100% - 28px,1080px)}.menu-toggle{display:block}.nav-links{position:absolute;top:64px;left:14px;right:14px;display:none;flex-direction:column;gap:0;padding:7px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:11px 12px;border-radius:8px}.nav-links a:after{display:none}.nav-links a.active{background:var(--soft)}.hero{padding:48px 0 38px}.hero-grid,.about-grid{grid-template-columns:1fr}.hero-visual{order:-1}.profile-wrap{width:190px;height:190px}.signature{font-size:1.65rem}.contact-strip{justify-content:center}.role{grid-template-columns:1fr;gap:6px;padding-left:30px}.timeline:before{left:7px}.role:before{left:1px;top:5px}.contact-box{flex-direction:column;align-items:flex-start}.contact-actions{width:100%}.contact-actions .btn{flex:1}.contact-actions{width:100%}.contact-actions .btn{flex:1}}
 @media(max-width:520px){section{padding:43px 0}.stats{grid-template-columns:1fr 1fr;gap:9px}.stat{padding:12px;gap:9px;min-height:67px}.stat-icon{width:35px;height:35px;flex-basis:35px}.stat strong{font-size:.9rem}.stat span{font-size:.58rem}.projects{grid-template-columns:1fr}.actions .btn{flex:1 1 auto}.hero h1{font-size:2.45rem}.hero-lead{font-size:.84rem}.skills-header{align-items:flex-start}.contact-box{padding:27px 23px}.contact-box h2{font-size:1.3rem}.brand-logo{width:30px;height:34px;flex-basis:30px}.brand-logo img{width:30px;height:34px;object-fit:contain}.brand{gap:7px;font-size:.98rem}}
+
+.engineering-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.engineering-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;transition:.2s}
+.engineering-card:hover{transform:translateY(-2px);border-color:#afd3ff;box-shadow:var(--shadow)}
+.engineering-icon{width:42px;height:42px;display:grid;place-items:center;background:#e5f1ff;color:var(--blue);border-radius:12px;margin-bottom:13px}
+.engineering-card h3{margin:0 0 6px;color:var(--navy);font-size:.86rem}
+.engineering-card p{margin:0;color:var(--muted);font-size:.71rem}
+
+.architecture-box{background:linear-gradient(135deg,#f4f9ff,#edf6ff);border:1px solid #e1edf9;border-radius:16px;padding:28px}
+.architecture-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 18px}
+.arch-node{background:#fff;border:1px solid #cfe1f5;border-radius:11px;padding:12px 16px;text-align:center;min-width:145px;box-shadow:0 4px 12px rgba(24,65,120,.04)}
+.arch-node strong{display:block;color:var(--navy);font-size:.74rem}
+.arch-node span{display:block;color:var(--muted);font-size:.61rem;margin-top:2px}
+.arch-arrow{color:var(--blue);font-size:1.15rem;font-weight:800}
+.arch-tech{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.arch-tech span{background:#fff;border:1px solid #d7e6f6;border-radius:999px;padding:6px 10px;color:#46607e;font-size:.64rem;font-weight:650}
+
+.career-line{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:32px}
+.career-line:before{content:"";position:absolute;left:10%;right:10%;top:14px;height:2px;background:#d5e8ff}
+.career-step{position:relative;text-align:center}
+.career-dot{width:29px;height:29px;margin:0 auto 12px;border-radius:50%;background:var(--blue);border:6px solid #dceeff;position:relative;z-index:2}
+.career-year{color:var(--blue);font-size:.67rem;font-weight:800}
+.career-step h3{color:var(--navy);font-size:.78rem;margin:4px 0 2px}
+.career-step p{color:var(--muted);font-size:.65rem;margin:0}
+
+.bring-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.bring-card{background:linear-gradient(135deg,#f5faff,#edf6ff);border:1px solid #e1edf9;border-radius:14px;padding:20px}
+.bring-card h3{color:var(--navy);font-size:.82rem;margin:0 0 5px}
+.bring-card p{color:var(--muted);font-size:.68rem;margin:0}
+.bring-number{color:var(--blue);font-size:.72rem;font-weight:800;margin-bottom:10px}
+
+@media(max-width:900px){
+  .engineering-grid{grid-template-columns:repeat(2,1fr)}
+  .bring-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .engineering-grid,.bring-grid{grid-template-columns:1fr}
+  .architecture-flow{flex-direction:column}
+  .arch-arrow{transform:rotate(90deg)}
+  .career-line{grid-template-columns:1fr;gap:25px}
+  .career-line:before{left:50%;top:14px;bottom:14px;width:2px;height:auto;right:auto}
+}
   </style>
 </head>
 
@@ -40,8 +82,16 @@ section{padding:54px 0}.section-title{color:var(--navy);font-size:clamp(1.65rem,
       <span class="brand-name">Kumarasamy K</span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#top" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
-      <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      <a href="#top" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#engineering-highlights">Highlights</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#career">Career</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#what-i-bring">What I Bring</a>
+      <a href="#contact">Contact</a>
     </div>
     <a class="nav-resume" href="Kumarasamy_Resume.pdf" download><i class="fa-solid fa-download"></i> Download Resume</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
@@ -87,12 +137,101 @@ section{padding:54px 0}.section-title{color:var(--navy);font-size:clamp(1.65rem,
 
 
 
+<section id="engineering-highlights">
+  <div class="container">
+    <h2 class="section-title">Engineering Highlights</h2>
+    <p class="section-intro">A few areas where I bring hands-on engineering depth across Android, backend integration and production systems.</p>
+    <div class="engineering-grid">
+      <article class="engineering-card">
+        <div class="engineering-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Android Architecture</h3>
+        <p>Modernized legacy Android patterns using Hilt, DataStore, ViewModels, Coroutines, Flow and maintainable application architecture.</p>
+      </article>
+      <article class="engineering-card">
+        <div class="engineering-icon"><i class="fa-solid fa-bug"></i></div>
+        <h3>Production Debugging</h3>
+        <p>Diagnosed memory leaks, data-integrity issues, SQL defects and complex production failures across application and backend layers.</p>
+      </article>
+      <article class="engineering-card">
+        <div class="engineering-icon"><i class="fa-brands fa-bluetooth-b"></i></div>
+        <h3>Device &amp; Connectivity</h3>
+        <p>Hands-on experience with BLE, thermal printers, barcode scanners, biometric devices and other connected hardware.</p>
+      </article>
+      <article class="engineering-card">
+        <div class="engineering-icon"><i class="fa-solid fa-server"></i></div>
+        <h3>Backend Integration</h3>
+        <p>Worked across Node.js, Express, MySQL, REST APIs and Python services to build reliable end-to-end product workflows.</p>
+      </article>
+      <article class="engineering-card">
+        <div class="engineering-icon"><i class="fa-solid fa-universal-access"></i></div>
+        <h3>Accessibility</h3>
+        <p>Implemented TalkBack support, labels, focus navigation, scalable UI and screen-reader-friendly experiences.</p>
+      </article>
+      <article class="engineering-card">
+        <div class="engineering-icon"><i class="fa-solid fa-users"></i></div>
+        <h3>Technical Leadership</h3>
+        <p>Mentoring, code reviews, architecture guidance, production support and cross-layer troubleshooting within Agile teams.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="skills"><div class="container">
   <div class="skills-header"><h2 class="section-title">Technical Skills</h2></div>
   <div class="skills-wrap">
     <span class="skill-pill">Android</span><span class="skill-pill">Kotlin</span><span class="skill-pill">Jetpack Compose</span><span class="skill-pill">Java</span><span class="skill-pill">MVVM</span><span class="skill-pill">Hilt / DI</span><span class="skill-pill">Coroutines</span><span class="skill-pill">Flow</span><span class="skill-pill">Room</span><span class="skill-pill">DataStore</span><span class="skill-pill">Retrofit</span><span class="skill-pill">REST APIs</span><span class="skill-pill">Node.js</span><span class="skill-pill">MySQL</span><span class="skill-pill">Python</span><span class="skill-pill">BLE</span><span class="skill-pill">JUnit</span><span class="skill-pill">Espresso</span><span class="skill-pill">Crashlytics</span><span class="skill-pill">LeakCanary</span><span class="skill-pill">GitHub Actions</span><span class="skill-pill">Jenkins</span><span class="skill-pill">TalkBack</span><span class="skill-pill">WCAG</span>
   </div>
 </div></section>
+
+<section id="architecture">
+  <div class="container">
+    <h2 class="section-title">Architecture</h2>
+    <p class="section-intro">A practical, layered approach to building maintainable Android applications and connecting them to reliable backend services.</p>
+    <div class="architecture-box">
+      <div class="architecture-flow">
+        <div class="arch-node"><strong>UI Layer</strong><span>Compose / Android Views</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node"><strong>ViewModel</strong><span>State + UI logic</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node"><strong>Repository</strong><span>Data coordination</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node"><strong>Data Sources</strong><span>REST API / Local DB</span></div>
+      </div>
+      <div class="arch-tech">
+        <span>Kotlin</span><span>Jetpack Compose</span><span>MVVM</span><span>Hilt / DI</span>
+        <span>Coroutines</span><span>Flow</span><span>Room</span><span>DataStore</span>
+        <span>Retrofit</span><span>Node.js</span><span>MySQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="container">
+    <h2 class="section-title">Career Timeline</h2>
+    <p class="section-intro">A progression from Android development into senior-level architecture, production engineering and cross-layer ownership.</p>
+    <div class="career-line">
+      <div class="career-step">
+        <div class="career-dot"></div>
+        <div class="career-year">2014</div>
+        <h3>Junior Android Developer</h3>
+        <p>Android features, BLE and connected hardware</p>
+      </div>
+      <div class="career-step">
+        <div class="career-dot"></div>
+        <div class="career-year">2016</div>
+        <h3>Software Engineer – Android</h3>
+        <p>Kotlin, Java, MVVM and product development</p>
+      </div>
+      <div class="career-step">
+        <div class="career-dot"></div>
+        <div class="career-year">2020 – Present</div>
+        <h3>Senior Software Engineer – Android</h3>
+        <p>Architecture, backend, reliability and technical leadership</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="experience"><div class="container"><h2 class="section-title">Experience</h2><div class="timeline">
   <article class="role"><div class="role-date">Oct 2020 – Present<small>Current</small></div><div class="role-content"><div class="role-head"><h3>Senior Software Engineer – Android</h3><span class="current">Current</span></div><div class="company">TalentMicro Innovations Pvt Ltd</div><ul>
@@ -122,7 +261,7 @@ section{padding:54px 0}.section-title{color:var(--navy);font-size:clamp(1.65rem,
 
 <section id="projects">
   <div class="container">
-    <h2 class="section-title">Selected Projects</h2>
+    <h2 class="section-title">Projects</h2>
     <p class="section-intro">A selection of Android, backend and full-stack work represented in my current professional profile.</p>
 
     <div class="projects">
@@ -158,6 +297,19 @@ section{padding:54px 0}.section-title{color:var(--navy);font-size:clamp(1.65rem,
         <div class="project-type">HR &amp; RPO Management | Backend</div>
         <p>HR and RPO platform supporting candidate profiling, job-order management, role-based access, workflow automation and API-driven HR processes.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<section id="what-i-bring">
+  <div class="container">
+    <h2 class="section-title">What I Bring</h2>
+    <p class="section-intro">The combination of skills I bring to senior Android and software engineering teams.</p>
+    <div class="bring-grid">
+      <article class="bring-card"><div class="bring-number">01</div><h3>Build</h3><p>Modern, maintainable Android applications with Kotlin, Compose and scalable architecture.</p></article>
+      <article class="bring-card"><div class="bring-number">02</div><h3>Solve</h3><p>Practical problem solving across production bugs, performance, data and complex workflows.</p></article>
+      <article class="bring-card"><div class="bring-number">03</div><h3>Integrate</h3><p>Mobile, backend, databases and connected hardware into dependable end-to-end solutions.</p></article>
+      <article class="bring-card"><div class="bring-number">04</div><h3>Improve</h3><p>Legacy modernization, reliability, accessibility, code quality and engineering practices.</p></article>
     </div>
   </div>
 </section>
