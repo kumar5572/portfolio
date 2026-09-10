@@ -71,7 +71,135 @@ section{padding:54px 0}.section-title{color:var(--navy);font-size:clamp(1.65rem,
   .career-line{grid-template-columns:1fr;gap:25px}
   .career-line:before{left:50%;top:14px;bottom:14px;width:2px;height:auto;right:auto}
 }
-  </style>
+  
+/* Day / Night theme */
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+html[data-theme="dark"] body {
+  background: #0b1220;
+  color: #e5edf8;
+}
+html[data-theme="dark"] .nav,
+html[data-theme="dark"] .site-header {
+  background: rgba(11,18,32,.94) !important;
+  border-color: #1f2d42 !important;
+}
+html[data-theme="dark"] .nav a,
+html[data-theme="dark"] .brand,
+html[data-theme="dark"] .mobile-menu a {
+  color: #e5edf8 !important;
+}
+html[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #101d32 0%, #0b1220 100%) !important;
+}
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] .section-title {
+  color: #f4f8ff !important;
+}
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .section-intro,
+html[data-theme="dark"] .card p,
+html[data-theme="dark"] .timeline p,
+html[data-theme="dark"] .project p,
+html[data-theme="dark"] .contact-box p {
+  color: #b8c5d8 !important;
+}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .skill-card,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .timeline-item,
+html[data-theme="dark"] .architecture-card,
+html[data-theme="dark"] .highlight-card {
+  background: #111c2e !important;
+  border-color: #26364e !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18) !important;
+}
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .skill,
+html[data-theme="dark"] .chip {
+  background: #17263c !important;
+  border-color: #2b405d !important;
+  color: #cfe0f5 !important;
+}
+html[data-theme="dark"] .mobile-menu {
+  background: #0f1a2b !important;
+  border-color: #26364e !important;
+}
+html[data-theme="dark"] .contact-box {
+  background: linear-gradient(135deg, #10294d, #0c1e38) !important;
+}
+html[data-theme="dark"] footer {
+  background: #080e18 !important;
+  color: #9fb0c6 !important;
+}
+html[data-theme="dark"] .theme-toggle {
+  background: #17263c;
+  border-color: #304764;
+  color: #f4f8ff;
+}
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d7e2ef;
+  border-radius: 50%;
+  background: #fff;
+  color: #10233f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: .2s ease;
+  flex: 0 0 auto;
+}
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+.theme-toggle .moon { display: inline; }
+.theme-toggle .sun { display: none; }
+html[data-theme="dark"] .theme-toggle .moon { display: none; }
+html[data-theme="dark"] .theme-toggle .sun { display: inline; }
+
+
+/* Single-icon day/night theme switch */
+.theme-toggle{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  padding:0;
+  margin-left:4px;
+  border:1px solid #cddbea;
+  border-radius:50%;
+  background:#fff;
+  color:#10233f;
+  cursor:pointer;
+  font:600 1.05rem/1 Inter,system-ui,sans-serif;
+  white-space:nowrap;
+  z-index:20;
+}
+.theme-toggle .sun{display:none;}
+.theme-toggle .moon{display:inline;}
+html[data-theme="dark"] .theme-toggle{
+  background:#17263c;
+  border-color:#38516f;
+  color:#f4f8ff;
+}
+html[data-theme="dark"] .theme-toggle .moon{display:none;}
+html[data-theme="dark"] .theme-toggle .sun{display:inline;}
+@media(max-width:760px){
+  .theme-toggle{
+    width:34px;
+    height:34px;
+    margin-left:auto;
+    margin-right:8px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -393,6 +521,95 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", updateActive);
   updateActive();
 });
+</script>
+
+
+<script>
+(function () {
+  const key = 'kk-portfolio-theme';
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    if (toggle) {
+      const dark = theme === 'dark';
+      toggle.setAttribute('aria-label', dark ? 'Switch to day mode' : 'Switch to night mode');
+      toggle.setAttribute('title', dark ? 'Switch to day mode' : 'Switch to night mode');
+    }
+  }
+
+  let saved = null;
+  try { saved = localStorage.getItem(key); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    applyTheme(saved);
+  } else {
+    applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem(key, next); } catch (e) {}
+    });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  const root=document.documentElement;
+  const btn=document.getElementById('themeToggle');
+  if(!btn) return;
+  const label=btn.querySelector('.theme-label');
+  function setTheme(t){
+    root.setAttribute('data-theme',t);
+    const dark=t==='dark';
+    btn.setAttribute('aria-label',dark?'Switch to day mode':'Switch to night mode');
+    btn.setAttribute('title',dark?'Switch to day mode':'Switch to night mode');
+    if(label && !dark) label.textContent='Night';
+  }
+  let saved=null;
+  try{saved=localStorage.getItem('kk-portfolio-theme')}catch(e){}
+  if(saved!=='dark' && saved!=='light') saved=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  setTheme(saved);
+  btn.onclick=function(){
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    setTheme(next);
+    try{localStorage.setItem('kk-portfolio-theme',next)}catch(e){}
+  };
+})();
+</script>
+
+
+<script>
+(function(){
+  const root=document.documentElement;
+  const btn=document.getElementById('themeToggle');
+  if(!btn) return;
+
+  function applyTheme(theme){
+    root.setAttribute('data-theme',theme);
+    const dark=theme==='dark';
+    btn.setAttribute('aria-label', dark ? 'Disable dark mode' : 'Enable dark mode');
+    btn.setAttribute('title', dark ? 'Disable dark mode' : 'Enable dark mode');
+  }
+
+  let saved=null;
+  try{saved=localStorage.getItem('kk-portfolio-theme')}catch(e){}
+  if(saved!=='dark' && saved!=='light'){
+    saved=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  }
+  applyTheme(saved);
+
+  btn.addEventListener('click',function(){
+    const next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    applyTheme(next);
+    try{localStorage.setItem('kk-portfolio-theme',next)}catch(e){}
+  });
+})();
 </script>
 
 </body>
