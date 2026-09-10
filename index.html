@@ -465,6 +465,62 @@ html[data-theme="dark"] .mobile-menu{
   }
 }
 
+
+/* Floating Day/Night button — independent of navigation */
+#themeToggle.floating-theme-toggle{
+  position:fixed !important;
+  right:24px !important;
+  bottom:24px !important;
+  z-index:99999 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:46px !important;
+  height:46px !important;
+  min-width:46px !important;
+  min-height:46px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:1px solid #c9d7e7 !important;
+  border-radius:50% !important;
+  background:#fff !important;
+  color:#10233f !important;
+  box-shadow:0 8px 24px rgba(16,35,63,.18) !important;
+  cursor:pointer !important;
+  font:22px/1 Arial,sans-serif !important;
+  box-sizing:border-box !important;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease !important;
+}
+#themeToggle.floating-theme-toggle:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 10px 28px rgba(16,35,63,.24) !important;
+}
+#themeToggle.floating-theme-toggle .theme-icon{
+  font:22px/1 Arial,sans-serif !important;
+}
+#themeToggle.floating-theme-toggle .sun{display:none !important;}
+#themeToggle.floating-theme-toggle .moon{display:inline-block !important;}
+
+html[data-theme="dark"] #themeToggle.floating-theme-toggle{
+  background:#17263c !important;
+  color:#fff !important;
+  border-color:#46617f !important;
+  box-shadow:0 8px 26px rgba(0,0,0,.45) !important;
+}
+html[data-theme="dark"] #themeToggle.floating-theme-toggle .moon{display:none !important;}
+html[data-theme="dark"] #themeToggle.floating-theme-toggle .sun{display:inline-block !important;}
+
+@media(max-width:760px){
+  #themeToggle.floating-theme-toggle{
+    right:16px !important;
+    bottom:16px !important;
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -493,11 +549,7 @@ html[data-theme="dark"] .mobile-menu{
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   </div>
 
-<button class="theme-toggle" id="themeToggle" type="button"
-  aria-label="Enable dark mode" title="Enable dark mode">
-  <span class="theme-icon moon" aria-hidden="true">☾</span>
-  <span class="theme-icon sun" aria-hidden="true">☀</span>
-</button>
+
 </nav>
 
 <header class="hero" id="top">
@@ -990,6 +1042,48 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setupTheme);
   else setupTheme();
+})();
+</script>
+
+<button class="theme-toggle floating-theme-toggle" id="themeToggle" type="button"
+  aria-label="Enable dark mode" title="Enable dark mode">
+  <span class="theme-icon moon" aria-hidden="true">☾</span>
+  <span class="theme-icon sun" aria-hidden="true">☀</span>
+</button>
+
+<script>
+(function(){
+  function setupFloatingTheme(){
+    var root=document.documentElement;
+    var btn=document.getElementById('themeToggle');
+    if(!btn || btn.dataset.themeReady==='1') return;
+    btn.dataset.themeReady='1';
+
+    var saved=null;
+    try{saved=localStorage.getItem('kk-portfolio-theme')}catch(e){}
+    var theme=(saved==='dark'||saved==='light') ? saved :
+      ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark':'light');
+
+    function apply(t){
+      root.setAttribute('data-theme',t);
+      var dark=t==='dark';
+      btn.setAttribute('aria-label',dark?'Disable dark mode':'Enable dark mode');
+      btn.setAttribute('title',dark?'Disable dark mode':'Enable dark mode');
+    }
+
+    apply(theme);
+    btn.onclick=function(){
+      var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+      apply(next);
+      try{localStorage.setItem('kk-portfolio-theme',next)}catch(e){}
+    };
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',setupFloatingTheme);
+  }else{
+    setupFloatingTheme();
+  }
 })();
 </script>
 
