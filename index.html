@@ -521,6 +521,61 @@ html[data-theme="dark"] #themeToggle.floating-theme-toggle .sun{display:inline-b
   }
 }
 
+
+/* THEME TOGGLE - isolated fixed floating control */
+#themeToggle.floating-theme-toggle {
+  all: unset !important;
+  position: fixed !important;
+  display: flex !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  z-index: 2147483647 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  border: 1px solid #b8c9dc !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: #10233f !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,.20) !important;
+  cursor: pointer !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 25px !important;
+  line-height: 1 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+#themeToggle.floating-theme-toggle:hover {
+  transform: translateY(-2px) !important;
+}
+#themeToggle .moon-icon { display: inline-block !important; }
+#themeToggle .sun-icon { display: none !important; }
+
+html[data-theme="dark"] #themeToggle.floating-theme-toggle {
+  background: #17263c !important;
+  color: #ffffff !important;
+  border-color: #5a7596 !important;
+  box-shadow: 0 6px 22px rgba(0,0,0,.55) !important;
+}
+html[data-theme="dark"] #themeToggle .moon-icon { display: none !important; }
+html[data-theme="dark"] #themeToggle .sun-icon { display: inline-block !important; }
+
+@media (max-width:760px) {
+  #themeToggle.floating-theme-toggle {
+    right: 16px !important;
+    bottom: 16px !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -1045,11 +1100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 </script>
 
-<button class="theme-toggle floating-theme-toggle" id="themeToggle" type="button"
-  aria-label="Enable dark mode" title="Enable dark mode">
-  <span class="theme-icon moon" aria-hidden="true">☾</span>
-  <span class="theme-icon sun" aria-hidden="true">☀</span>
-</button>
+
 
 <script>
 (function(){
@@ -1083,6 +1134,47 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('DOMContentLoaded',setupFloatingTheme);
   }else{
     setupFloatingTheme();
+  }
+})();
+</script>
+
+<button id="themeToggle" class="floating-theme-toggle" type="button"
+aria-label="Enable dark mode" title="Enable dark mode">
+<span class="moon-icon">☾</span><span class="sun-icon">☀</span>
+</button>
+
+<script>
+(function () {
+  function initTheme() {
+    var root = document.documentElement;
+    var btn = document.getElementById("themeToggle");
+    if (!btn || btn.dataset.ready) return;
+    btn.dataset.ready = "1";
+
+    var saved = null;
+    try { saved = localStorage.getItem("kk-portfolio-theme"); } catch (e) {}
+    var theme = (saved === "dark" || saved === "light") ? saved : "light";
+
+    function apply(themeName) {
+      root.setAttribute("data-theme", themeName);
+      var dark = themeName === "dark";
+      btn.setAttribute("aria-label", dark ? "Disable dark mode" : "Enable dark mode");
+      btn.setAttribute("title", dark ? "Disable dark mode" : "Enable dark mode");
+    }
+
+    apply(theme);
+
+    btn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      apply(next);
+      try { localStorage.setItem("kk-portfolio-theme", next); } catch (e) {}
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTheme);
+  } else {
+    initTheme();
   }
 })();
 </script>
